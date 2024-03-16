@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34707.107
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "raylibtest", "game\raylibtest.vcxproj", "{68F55446-54AD-9693-BDB4-6FEFA98B3184}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8898EA18-743A-15EF-5DF5-284349369C3F} = {8898EA18-743A-15EF-5DF5-284349369C3F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "raylib", "raylib-master\raylib.vcxproj", "{8898EA18-743A-15EF-5DF5-284349369C3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68F55446-54AD-9693-BDB4-6FEFA98B3184}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{68F55446-54AD-9693-BDB4-6FEFA98B3184}.Debug|ARM64.Build.0 = Debug|ARM64
+		{68F55446-54AD-9693-BDB4-6FEFA98B3184}.Debug|x64.ActiveCfg = Debug|x64
+		{68F55446-54AD-9693-BDB4-6FEFA98B3184}.Debug|x64.Build.0 = Debug|x64
+		{68F55446-54AD-9693-BDB4-6FEFA98B3184}.Release|ARM64.ActiveCfg = Release|ARM64
+		{68F55446-54AD-9693-BDB4-6FEFA98B3184}.Release|ARM64.Build.0 = Release|ARM64
+		{68F55446-54AD-9693-BDB4-6FEFA98B3184}.Release|x64.ActiveCfg = Release|x64
+		{68F55446-54AD-9693-BDB4-6FEFA98B3184}.Release|x64.Build.0 = Release|x64
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|ARM64.Build.0 = Debug|ARM64
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|x64.ActiveCfg = Debug|x64
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|x64.Build.0 = Debug|x64
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Release|ARM64.ActiveCfg = Release|ARM64
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Release|ARM64.Build.0 = Release|ARM64
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Release|x64.ActiveCfg = Release|x64
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
