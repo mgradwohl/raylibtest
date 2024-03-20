@@ -178,7 +178,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>DEBUG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\repos\sfmltest\build\_deps\spdlog-src\include;C:\repos\sfmltest\build\_deps\gsl-src\include;.;src;include;..\raylib-master\src;..\raylib-master\src\external;..\raylib-master\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\repos\sfmltest\build\_deps\gsl-src\include;.;src;include;..\raylib-master\src;..\raylib-master\src\external;..\raylib-master\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
@@ -245,7 +245,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;PLATFORM_DESKTOP;GRAPHICS_API_OPENGL_33;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\repos\sfmltest\build\_deps\spdlog-src\include;C:\repos\sfmltest\build\_deps\gsl-src\include;.;src;include;..\raylib-master\src;..\raylib-master\src\external;..\raylib-master\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\repos\sfmltest\build\_deps\gsl-src\include;.;src;include;..\raylib-master\src;..\raylib-master\src\external;..\raylib-master\src\external\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -270,14 +270,12 @@
   <ItemGroup>
     <ClInclude Include="..\Board.h" />
     <ClInclude Include="..\Cell.h" />
-    <ClInclude Include="..\Log.h" />
     <ClInclude Include="..\RLDrawSession.h" />
     <ClInclude Include="..\RLWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Board.cpp" />
     <ClCompile Include="..\Cell.cpp" />
-    <ClCompile Include="..\Log.cpp" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\RLDrawSession.cpp" />
     <ClCompile Include="..\RLWindow.cpp" />
