@@ -1,8 +1,4 @@
-﻿//#include "pch.h"
-
-#include "Board.h"
-
-#include <future>
+﻿#include <future>
 #include <algorithm>
 #include <random>
 #include <iostream>
@@ -11,13 +7,12 @@
 
 #include <gsl/gsl>
 
-//#include "Log.h"
+#include "Board.h"
 
 // optimized to never use std::endl until the full board is done printing
 std::wostream& operator<<(std::wostream& stream, Board& board)
 {
 	static std::wstring str(((board.Width() + 2) * board.Height()) + 1, ' ');
-	// clear the static string of any leftover goo
 	str.clear();
 
 	for (uint16_t y = 0; y < board.Height(); y++)
@@ -37,16 +32,12 @@ std::wostream& operator<<(std::wostream& stream, Board& board)
 
 Board::Board() noexcept
 {
-	//ML_METHOD;
-
 	_threadcount = gsl::narrow_cast<int>(std::thread::hardware_concurrency() / 2);
 	_threadcount = std::clamp(_threadcount, 2, 8);
 }
 
 void Board::Update(BoardRules rules)
 {
-	// TODO Alive Count is just not accurate
-	//ML_METHOD;
 	std::scoped_lock lock { _lockboard };
 	ResetCounts();
 	FastDetermineNextState(rules);
@@ -55,8 +46,6 @@ void Board::Update(BoardRules rules)
 
 void Board::Resize(uint16_t width, uint16_t height, uint16_t maxage)
 {
-	//ML_METHOD;
-
 	std::scoped_lock lock { _lockboard };
 	_height = height;
 	_width = width;
@@ -71,8 +60,6 @@ void Board::Resize(uint16_t width, uint16_t height, uint16_t maxage)
 	// always resize to the newsize even if it's smaller
 	_cells.resize(newsize);
 
-	//_cells.clear(); // this removes the items from the vector, but does not free the memory
-
 	if (_cells.capacity() < newsize)
 	{
 		__debugbreak();
@@ -80,8 +67,6 @@ void Board::Resize(uint16_t width, uint16_t height, uint16_t maxage)
 
 	ResetCounts();
 	_generation = 0;
-
-	//ML_TRACE("New board size: {}x{} cellcount: {} _cells.size:{}", _width, _height, newsize, _cells.size());
 }
 
 //bool Board::CopyShape(Shape& shape, uint16_t startX, uint16_t startY)
@@ -175,9 +160,6 @@ void Board::TurnCellOn(GridPoint g, bool on)
 
 void Board::CountLiveAndDyingNeighbors(uint16_t x, uint16_t y)
 {
-	// don't do this it happens for every cell every frame and will spam the Log
-	//ML_METHOD;
-
 	// calculate offsets that wrap
 	const uint16_t xoleft = (x == 0) ? _width - 1 : -1;
 	const uint16_t xoright = (x == (_width - 1)) ? -(_width - 1) : 1;
@@ -334,8 +316,6 @@ void Board::UpdateRowsWithNextState(uint16_t startRow, uint16_t endRow, BoardRul
 
 void Board::FastDetermineNextState(BoardRules rules)
 {
-	/*ML_METHOD*/;
-
 	uint16_t rowStart = 0;
 	const auto rowsPerThread = gsl::narrow_cast<uint16_t>(Height() / _threadcount);
 	const auto remainingRows = gsl::narrow_cast<uint16_t>(Height() % _threadcount);
@@ -343,13 +323,10 @@ void Board::FastDetermineNextState(BoardRules rules)
 	std::vector<std::jthread> threads;
 	for (int t = 0; t < _threadcount - 1; t++)
 	{
-		//ML_TRACE("FastDetermineNextState Start Row: {} EndRow: {}", rowStart, rowStart + rowsPerThread);
-
 		threads.emplace_back(std::jthread{ &Board::UpdateRowsWithNextState, this, rowStart, gsl::narrow_cast<uint16_t>(rowStart + rowsPerThread), rules });
 		rowStart += rowsPerThread;
 
 	}
-	//ML_TRACE("FastDetermineNextState Start Row: {} EndRow: {}", rowStart, rowStart + rowsPerThread + remainingRows);
 	threads.emplace_back(std::jthread{ &Board::UpdateRowsWithNextState, this, rowStart, gsl::narrow_cast<uint16_t>(rowStart + rowsPerThread + remainingRows), rules });
 }
 

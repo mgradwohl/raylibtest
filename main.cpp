@@ -5,8 +5,6 @@
 
 #include <gsl/gsl>
 
-//#define ML_LOGGING
-//#include "Log.h"
 #include "raylib.h"
 #include "RLWindow.h"
 #include "RLDrawSession.h"
