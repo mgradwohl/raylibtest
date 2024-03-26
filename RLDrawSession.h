@@ -19,5 +19,6 @@ namespace raylib
 
 		void DrawRectangle(int x, int y, int width, int height, Color color);
 		void DrawText(const std::string& text, int x, int y, int fontSize, Color color);
+		void DrawFPS(int posX, int posY, int height);
 	};
 } // namespace raylib

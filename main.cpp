@@ -17,20 +17,6 @@
 static const uint16_t screenWidth = 1200;
 static const uint16_t screenHeight = 1200;
 static const std::string windowTitle = "Conway's Game of Life";
-//static const std::string windowTitle = "Conway’s Game of Life";
-
-// Draw current FPS
-// NOTE: Uses default font
-void myDrawFPS(int posX, int posY)
-{
-    Color color = LIME;                         // Good FPS
-    const int fps = GetFPS();
-
-    if ((fps < 30) && (fps >= 15)) color = ORANGE;  // Warning FPS
-    else if (fps < 15) color = RED;             // Low FPS
-
-    DrawText(TextFormat("%2i FPS", fps), posX, posY, 20, color);
-}
 
 bool drawBoard(Board& board)
 {
@@ -57,17 +43,13 @@ bool drawBoard(Board& board)
         }
     }
 
-    //std::string fpsStr = std::format("FPS: {}", GetFPS());
-    //drawSession.DrawText(fpsStr, 10, 10, 20, LIGHTGRAY);
-    myDrawFPS(10, 10);
+    drawSession.DrawFPS(10, 10, 30);
     
     return true;
 }
 
 int main(void)
 {
-    //Util::Log::Init();
-
     // http://utf8everywhere.org/
     auto UTF8 = std::locale("en_US.UTF-8");
     std::locale::global(UTF8);
