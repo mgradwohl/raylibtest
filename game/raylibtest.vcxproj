@@ -31,6 +31,7 @@
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>raylibtest</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -99,6 +100,7 @@
     <IntDir>obj\x64\Debug\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
+    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -106,6 +108,7 @@
     <IntDir>obj\x86\Debug\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
+    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <LinkIncremental>true</LinkIncremental>
@@ -113,6 +116,7 @@
     <IntDir>obj\ARM64\Debug\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
+    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -120,6 +124,8 @@
     <IntDir>obj\x64\Release\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
+    <IncludePath>C:\Users\mattg\source\GSL\include;C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\raylib\raylib\projects\VS2022\build\raylib\bin\$(LibrariesArchitecture)\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -127,6 +133,7 @@
     <IntDir>obj\x86\Release\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
+    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <LinkIncremental>false</LinkIncremental>
@@ -134,6 +141,7 @@
     <IntDir>obj\ARM64\Release\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
+    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -144,7 +152,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -163,7 +171,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -204,7 +212,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -228,7 +236,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -279,11 +287,6 @@
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\RLDrawSession.cpp" />
     <ClCompile Include="..\RLWindow.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\raylib-master\raylib.vcxproj">
-      <Project>{8898EA18-743A-15EF-5DF5-284349369C3F}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
