@@ -21,6 +21,7 @@
     <ClInclude Include="..\RLWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Render.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Board.cpp">
@@ -38,5 +39,6 @@
     <ClCompile Include="..\RLWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Render.cpp" />
   </ItemGroup>
 </Project>

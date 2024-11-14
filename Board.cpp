@@ -36,6 +36,13 @@ Board::Board() noexcept
 	_threadcount = std::clamp(_threadcount, 2, 8);
 }
 
+Board::Board(uint16_t width, uint16_t height, uint16_t maxage)
+{
+	_threadcount = gsl::narrow_cast<int>(std::thread::hardware_concurrency() / 2);
+	_threadcount = std::clamp(_threadcount, 2, 8);
+	Resize(width, height, maxage);
+}
+
 void Board::Update(BoardRules rules)
 {
 	std::scoped_lock lock { _lockboard };
@@ -269,6 +276,38 @@ void Board::RandomizeBoard(float alivepct, uint16_t maxage)
 	int ra = 0;
 	{
 		std::scoped_lock lock { _lockboard };
+		for (auto& cell : _cells)
+		{
+			rp = pdis(gen);
+			if (rp <= alivepct)
+			{
+				SetCell(cell, Cell::State::Live);
+				ra = adis(gen);
+				cell.Age(gsl::narrow_cast<uint16_t>(ra));
+			}
+			else
+			{
+				SetCell(cell, Cell::State::Dead);
+			}
+		}
+	}
+}
+
+void Board::RandomizeBoard(float alivepct)
+{
+	ResetCounts();
+	_generation = 0;
+
+	// TODO use XOSHIRO instead
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> pdis(0.0, 1.0);
+	std::uniform_int_distribution<int> adis(0, _maxage);
+
+	double rp = 0.0f;
+	int ra = 0;
+	{
+		std::scoped_lock lock{ _lockboard };
 		for (auto& cell : _cells)
 		{
 			rp = pdis(gen);

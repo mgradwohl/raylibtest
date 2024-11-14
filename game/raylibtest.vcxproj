@@ -278,6 +278,7 @@
   <ItemGroup>
     <ClInclude Include="..\Board.h" />
     <ClInclude Include="..\Cell.h" />
+    <ClInclude Include="..\Render.h" />
     <ClInclude Include="..\RLDrawSession.h" />
     <ClInclude Include="..\RLWindow.h" />
   </ItemGroup>
@@ -285,6 +286,7 @@
     <ClCompile Include="..\Board.cpp" />
     <ClCompile Include="..\Cell.cpp" />
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\Render.cpp" />
     <ClCompile Include="..\RLDrawSession.cpp" />
     <ClCompile Include="..\RLWindow.cpp" />
   </ItemGroup>

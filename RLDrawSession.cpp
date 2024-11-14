@@ -38,11 +38,11 @@ namespace raylib
         Color color = LIME;
         const int fps = GetFPS();
 
-        if ((fps < 30) && (fps >= 15))
+        if ((fps < 60) && (fps >= 30))
         {
             color = ORANGE;
         }
-        else if (fps < 15)
+        else if (fps < 30)
         {
             color = RED;
         }
