@@ -39,8 +39,6 @@ class Board
     Board() noexcept;
     Board(uint16_t width, uint16_t height, uint16_t maxage);
 
-    ~Board() = default;
-
     // move/copy constuct
     Board(Board&& b) = delete;
     Board(Board& b) = delete;
@@ -48,6 +46,8 @@ class Board
     // no need to assign one board to another board
     Board& operator=(Board&& b) = delete;
     Board& operator=(Board& b) = delete;
+
+    ~Board() = default;
 
     [[nodiscard]] const Cell& GetCell(uint16_t x, uint16_t y) const
     {
@@ -141,14 +141,16 @@ class Board
 private:
     // board updating
     // Update calls UpdateRowsWithNextState and FastDetermineNextState
-    // if you drew the board in between those calls, you'd see the intermediate states e.g. cells born or that will die
-    // in the next generation many of these are split up to support multithreading
-    void SetCell(Cell& cell, Cell::State state) noexcept;
+    // if you drew the board in between those calls, you'd see the intermediate states
+    // e.g. cells born or that will die in the next generation
+    // many of these are split up to support multithreading
+
     void UpdateRowsWithNextState(uint16_t startRow, uint16_t endRow, BoardRules rules);
     void FastDetermineNextState(BoardRules rules);
-    void CountLiveAndDyingNeighbors(uint16_t x, uint16_t y);
+    [[nodiscard]] uint8_t CountLiveAndDyingNeighbors(uint16_t x, uint16_t y);
     [[nodiscard]] uint8_t CountLiveNotDyingNeighbors(uint16_t x, uint16_t y);
     void ApplyNextState() noexcept;
+    void SetCell(Cell& cell, Cell::State state) noexcept;
 
     // rulesets
     void ConwayRules(Cell& cell) const noexcept;

@@ -165,7 +165,7 @@ void Board::TurnCellOn(GridPoint g, bool on)
 	}
 }
 
-void Board::CountLiveAndDyingNeighbors(uint16_t x, uint16_t y)
+uint8_t Board::CountLiveAndDyingNeighbors(uint16_t x, uint16_t y)
 {
 	// calculate offsets that wrap
 	const uint16_t xoleft = (x == 0) ? _width - 1 : -1;
@@ -187,6 +187,7 @@ void Board::CountLiveAndDyingNeighbors(uint16_t x, uint16_t y)
 	if (GetCell(x + xoright, y).IsAlive()) count++;
 
 	GetCell(x,y).Neighbors(count);
+	return count;
 }
 
 uint8_t Board::CountLiveNotDyingNeighbors(uint16_t x, uint16_t y)
@@ -347,7 +348,7 @@ void Board::UpdateRowsWithNextState(uint16_t startRow, uint16_t endRow, BoardRul
 		for (uint16_t x = 0; x < Width(); x++)
 		{
 			Cell& cell = GetCell(x, y);
-			CountLiveAndDyingNeighbors(x, y);
+			uint8_t count = CountLiveAndDyingNeighbors(x, y);
 			std::invoke(f_rules, this, cell);
 		}
 	}
