@@ -100,7 +100,8 @@
     <IntDir>obj\x64\Debug\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
-    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\mattg\repos\GSL\include;C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\raylib\raylib\projects\VS2022\build\raylib\bin\$(LibrariesArchitecture)\$(Configuration);$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -108,7 +109,8 @@
     <IntDir>obj\x86\Debug\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
-    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\mattg\repos\GSL\include;C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\raylib\raylib\projects\VS2022\build\raylib\bin\$(LibrariesArchitecture)\$(Configuration);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <LinkIncremental>true</LinkIncremental>
@@ -116,7 +118,8 @@
     <IntDir>obj\ARM64\Debug\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
-    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\mattg\repos\GSL\include;C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\raylib\raylib\projects\VS2022\build\raylib\bin\$(LibrariesArchitecture)\$(Configuration);$(VC_LibraryPath_ARM64);$(WindowsSDK_LibraryPath_ARM64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -124,8 +127,8 @@
     <IntDir>obj\x64\Release\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
-    <IncludePath>C:\Users\mattg\source\GSL\include;C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\raylib\raylib\projects\VS2022\build\raylib\bin\$(LibrariesArchitecture)\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\mattg\repos\GSL\include;C:\Users\mattg\source\GSL\include;C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\raylib\raylib\projects\VS2022\build\raylib\bin\$(LibrariesArchitecture)\$(Configuration);C:\raylib\raylib\projects\VS2022\build\raylib\bin\$(LibrariesArchitecture)\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -133,7 +136,8 @@
     <IntDir>obj\x86\Release\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
-    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\mattg\repos\GSL\include;C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\raylib\raylib\projects\VS2022\build\raylib\bin\$(LibrariesArchitecture)\$(Configuration);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <LinkIncremental>false</LinkIncremental>
@@ -141,7 +145,8 @@
     <IntDir>obj\ARM64\Release\</IntDir>
     <TargetName>raylibtest</TargetName>
     <TargetExt>.exe</TargetExt>
-    <IncludePath>C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\mattg\repos\GSL\include;C:\raylib\raylib\src;C:\raylib\raylib\src\external\glfw\include;C:\raylib\raylib\src\external;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\raylib\raylib\projects\VS2022\build\raylib\bin\$(LibrariesArchitecture)\$(Configuration);$(VC_LibraryPath_ARM64);$(WindowsSDK_LibraryPath_ARM64)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
