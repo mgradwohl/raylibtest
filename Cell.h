@@ -16,12 +16,9 @@ public:
     Cell() = default;
     ~Cell() = default;
 
-    // move/copy constuct
+    // move/copy construct
     Cell(Cell&& b) = default;
     Cell(Cell& b) = default;
-
-    // no need to assign one cell to another cell
-    // TODO future, compare by age or Live/Dead
     Cell& operator=(Cell&& b) = delete;
     Cell& operator=(Cell& b) = delete;
 

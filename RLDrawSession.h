@@ -12,7 +12,7 @@ namespace raylib
 
 		~DrawSession();
 
-		// move/copy constuct
+		// move/copy construct
 		DrawSession(DrawSession&& b) = delete;
 		DrawSession(DrawSession& b) = delete;
 		DrawSession& operator=(DrawSession& b) = delete;
